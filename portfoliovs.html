@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sandhiya V S | AI/ML Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-light: #7aa0c0;
+      --primary-dark: #7272e4;
+      --text-light: #f5ebeb;
+      --accent: #8db7d2;
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
+      color: #8e2dce;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    nav h1 {
+      font-size: 1.8em;
+      color: var(--text-light);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color:#8837d9;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #703ea2;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #2e327d;
+    }
+
+    header h2 {
+      font-weight: 400;
+      color:#605192;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: var(--accent);
+      color: var(--text-light);
+      padding: 10px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--text-light);
+      color: var(--primary-dark);
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.2em;
+      margin-bottom: 40px;
+      color: #8630ae;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 15px;
+      width: 270px;
+      box-shadow: var(--shadow);
+      text-align: left;
+      color: var(--text-light);
+    }
+
+    .card h3 {
+      color: #7927cc;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: var(--accent);
+      color: rgb(127, 50, 181);
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin: 4px 4px 0 0;
+      font-size: 0.8em;
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      line-height: 2;
+    }
+    .contact-info a{
+      color: #3a146e;
+
+    }
+
+    .contact-info a:hover {
+      color: #d7d1e1;
+
+    }
+
+    .social {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .social a {
+      font-size: 1.8em;
+      color: #5e4086;
+      
+      transition: 0.3s;
+    }
+
+    .social a:hover {
+      transform: scale(1.2);
+      color:  #e9e6ed;
+    }
+
+    footer {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .card-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Sandhiya V S</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <img src="C:\Users\lenovo\OneDrive\Documents\Desktop\HTML\4.1+Webpages (1)\Sandhiya.jpg" alt="Sandhiya V S">
+    <h1>Sandhiya V S</h1>
+    <h2>AI/ML Enthusiast | CSE Student</h2>
+    <p>Engineering student passionate about applying Artificial Intelligence & Machine Learning to real-world problems.</p>
+    <a href="C:\Users\lenovo\Downloads\VSSandhiya CV.pdf" class="btn" download>Download Resume</a>
+  </header>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>I am a curious and passionate CSE student with a strong interest in artificial intelligence and machine learning. My goal is to build systems that improve human life, especially in areas like healthcare, accessibility, and education. I enjoy building real-world projects and continuously exploring new tools and technologies.</p>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Programming Languages</h3>
+        <span class="tag">Python</span>
+        <span class="tag">C</span>
+        <span class="tag">SQL</span>
+      </div>
+      <div class="card">
+        <h3>Machine Learning</h3>
+        <span class="tag">NumPy</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">Seaborn</span>
+      </div>
+      <div class="card">
+        <h3>Web Development</h3>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Sleep Time Prediction</h3>
+        <p>Uses ML to recommend optimal sleep duration based on lifestyle patterns.</p>
+        <a href="https://github.com/VSSandhiya/Sleep_Time_prediction" class="btn" target="_blank">View ></a>
+      </div>
+      <div class="card">
+        <h3>Hand Gesture Recognition</h3>
+        <p>Detects and classifies real-time hand gestures using OpenCV.</p>
+        <a href="https://github.com/VSSandhiya/hand-gesture" class="btn" target="_blank">View ></a>
+      </div>
+      <div class="card">
+        <h3>Password Generator</h3>
+        <p>Python script to create secure, random passwords with various options.</p>
+        <a href="https://github.com/VSSandhiya/PasswordGenerator" class="btn" target="_blank">View ></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:vssandhiya2711@gmail.com">vssandhiya2711@gmail.com</a></p>
+      <p>Phone: +91 63817 33691</p>
+      <p>Location: Salem, Tamil Nadu, India</p>
+    </div>
+    <div class="social">
+      <a href="https://github.com/VSSandhiya" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/v-s-sandhiya-9852222a7" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://leetcode.com/u/VSSandhiya/" target="_blank"><i class="fas fa-code"></i></a>
+      <a href="https://www.codechef.com/users/vssandhiya" target="_blank"><i class="fas fa-utensils"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sandhiya V S. All rights reserved.</p>
+    <p>Made with ❤️ in Tamil Nadu | AI/ML Engineer in progress 🚀</p>
+  </footer>
+
+</body>
+</html>
