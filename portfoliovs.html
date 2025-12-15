@@ -33,6 +33,15 @@
             z-index: 1000;
             border-bottom: 1px solid #00ffff33;
             backdrop-filter: blur(10px);
+            transition: all 0.35s ease;
+        }
+
+        /* Header when scrolled */
+        header.scrolled {
+            padding: 10px 0;
+            background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(26,26,46,0.95));
+            box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+            border-bottom-color: rgba(168,85,247,0.12);
         }
 
         nav {
@@ -63,6 +72,12 @@
             position: relative;
         }
 
+        /* Active nav link */
+        .nav-links a.active {
+            color: #a855f7;
+            font-weight: 700;
+        }
+
         .nav-links a:hover {
             color: #00ffff;
         }
@@ -75,11 +90,14 @@
             width: 0;
             height: 2px;
             background: linear-gradient(90deg, #00ffff, #a855f7);
-            transition: width 0.3s;
+            transition: width 0.3s, opacity 0.3s;
+            opacity: 0.5;
         }
 
+        .nav-links a.active::after,
         .nav-links a:hover::after {
             width: 100%;
+            opacity: 1;
         }
 
         .hero {
@@ -131,6 +149,7 @@
         }
 
         .hero-image {
+            position: relative;
             flex: 0 0 340px;
             display: flex;
             align-items: center;
@@ -143,6 +162,45 @@
             margin-left: -40px; /* pull slightly outside for emphasis */
         }
 
+        .image-border {
+            position: absolute;
+            width: calc(320px + 24px);
+            height: calc(320px + 24px);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 16px;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(0,255,255,0.06), rgba(168,85,247,0.06));
+            filter: blur(8px);
+            opacity: 0.8;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .hero-image:hover .image-border {
+            transform: translate(-50%, -50%) scale(1.04);
+            opacity: 1;
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 20%;
+            top: 20%;
+            left: -25%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.02), rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+            transform: rotate(-20deg);
+            opacity: 0;
+            transition: left 0.8s ease, opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .hero-image:hover::after {
+            left: 120%;
+            opacity: 1;
+        }
+
         #profile-photo {
             width: 320px;
             height: 320px;
@@ -152,6 +210,16 @@
             box-shadow: 0 16px 50px rgba(0,255,255,0.12), 0 6px 18px rgba(0,0,0,0.6);
             display: block;
             background: #0a0a0a;
+            transition: transform 0.45s cubic-bezier(.2,.9,.2,1), box-shadow 0.45s ease, filter 0.3s ease;
+        }
+
+        /* hover and focus effects for profile image */
+        #profile-photo:hover,
+        #profile-photo:focus {
+            transform: translateY(-8px) rotate(-1deg) scale(1.04);
+            box-shadow: 0 28px 80px rgba(0,255,255,0.18), 0 10px 30px rgba(0,0,0,0.7);
+            filter: brightness(1.07) saturate(1.1);
+        }
         }
 
         /* On small screens stack the image above the text and center everything */
@@ -160,6 +228,8 @@
             .hero-content { text-align: center; }
             .hero-image { margin-bottom: 20px; margin-left: 0; }
             #profile-photo { width: 240px; height: 240px; border-radius: 12px; }
+            .image-border { width: calc(240px + 20px); height: calc(240px + 20px); }
+            .hero-image::after { top: 10%; }
         }
 
         .hero h1 {
@@ -1041,6 +1111,17 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+
+                    // set active nav link for the visible section
+                    const id = entry.target.id;
+                    if (id) {
+                        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+                        const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                            activeLink.setAttribute('aria-current', 'page');
+                        }
+                    }
                 }
             });
         }, observerOptions);
@@ -1051,6 +1132,15 @@
             section.style.transition = 'all 0.8s ease-out';
             observer.observe(section);
         });
+
+        // Header shrink on scroll
+        const headerEl = document.querySelector('header');
+        const toggleHeader = () => {
+            if (window.scrollY > 30) headerEl.classList.add('scrolled');
+            else headerEl.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', toggleHeader);
+        toggleHeader();
 
         // Form submission handler
         document.querySelector('form').addEventListener('submit', function(e) {
