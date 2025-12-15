@@ -1,298 +1,1007 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sandhiya V S | AI/ML Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --primary-light: #7aa0c0;
-      --primary-dark: #7272e4;
-      --text-light: #f5ebeb;
-      --accent: #8db7d2;
-      --glass-bg: rgba(255, 255, 255, 0.15);
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V S Sandhiya - AI & Machine Learning Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    body {
-      background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
-      color: #8e2dce;
-      line-height: 1.6;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    nav {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: var(--shadow);
-    }
+        header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #00ffff33;
+            backdrop-filter: blur(10px);
+        }
 
-    nav h1 {
-      font-size: 1.8em;
-      color: var(--text-light);
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-    }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00ffff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    nav ul li a {
-      text-decoration: none;
-      color:#8837d9;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
 
-    nav ul li a:hover {
-      color: #703ea2;
-    }
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
 
-    header {
-      text-align: center;
-      padding: 80px 20px;
-    }
+        .nav-links a:hover {
+            color: #00ffff;
+        }
 
-    header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #a855f7);
+            transition: width 0.3s;
+        }
 
-    header h1 {
-      font-size: 2.5em;
-      color: #2e327d;
-    }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-    header h2 {
-      font-weight: 400;
-      color:#605192;
-      margin-bottom: 20px;
-    }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%);
+        }
 
-    .btn {
-      background-color: var(--accent);
-      color: var(--text-light);
-      padding: 10px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 10px;
-      transition: 0.3s;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #00ffff22 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
 
-    .btn:hover {
-      background-color: var(--text-light);
-      color: var(--primary-dark);
-    }
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+        }
 
-    section {
-      padding: 60px 20px;
-      text-align: center;
-    }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
 
-    .section-title {
-      font-size: 2.2em;
-      margin-bottom: 40px;
-      color: #8630ae;
-    }
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInDown 1s ease-out;
+        }
 
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 20px;
-    }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .card {
-      background-color: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 15px;
-      width: 270px;
-      box-shadow: var(--shadow);
-      text-align: left;
-      color: var(--text-light);
-    }
+        .hero h2 {
+            font-size: 32px;
+            color: #00ffff;
+            margin-bottom: 20px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
 
-    .card h3 {
-      color: #7927cc;
-      margin-bottom: 10px;
-    }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .tag {
-      display: inline-block;
-      background-color: var(--accent);
-      color: rgb(127, 50, 181);
-      padding: 6px 12px;
-      border-radius: 20px;
-      margin: 4px 4px 0 0;
-      font-size: 0.8em;
-    }
+        .tagline {
+            font-size: 18px;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
 
-    .contact-info {
-      margin-top: 20px;
-      line-height: 2;
-    }
-    .contact-info a{
-      color: #3a146e;
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
 
-    }
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
 
-    .contact-info a:hover {
-      color: #d7d1e1;
+        .btn-primary {
+            background: linear-gradient(135deg, #00ffff, #00cccc);
+            color: #0a0a0a;
+            box-shadow: 0 4px 20px #00ffff44;
+        }
 
-    }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px #00ffff66;
+        }
 
-    .social {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-    }
+        .btn-secondary {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            border: 2px solid #a855f7;
+        }
 
-    .social a {
-      font-size: 1.8em;
-      color: #5e4086;
-      
-      transition: 0.3s;
-    }
+        .btn-secondary:hover {
+            background: rgba(168, 85, 247, 0.3);
+            transform: translateY(-2px);
+        }
 
-    .social a:hover {
-      transform: scale(1.2);
-      color:  #e9e6ed;
-    }
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
 
-    footer {
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 30px 20px;
-      text-align: center;
-      color: var(--text-light);
-    }
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #ffffff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 15px;
-      }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #00ffff, #a855f7);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
 
-      .card-container {
-        flex-direction: column;
-      }
-    }
-  </style>
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #00ffff33;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+        }
+
+        .about-content p {
+            font-size: 18px;
+            color: #c0c0c0;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .education-card, .experience-card {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #a855f733;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .education-card:hover, .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: #a855f7;
+            box-shadow: 0 8px 32px rgba(168, 85, 247, 0.2);
+        }
+
+        .education-card h3, .experience-card h3 {
+            font-size: 24px;
+            color: #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .education-card .degree {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .education-card .cgpa {
+            color: #4ade80;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .coursework {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .coursework span {
+            background: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            border: 1px solid #00ffff33;
+        }
+
+        .experience-card .role {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .experience-card .duration {
+            color: #a855f7;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .experience-card li {
+            color: #c0c0c0;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .experience-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #00ffff;
+            font-size: 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #00ffff33;
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ffff, #a855f7);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #00ffff;
+            box-shadow: 0 12px 40px rgba(0, 255, 255, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project-tech span {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #a855f744;
+        }
+
+        .project-card p {
+            color: #c0c0c0;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #4ade8033;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: #4ade80;
+            box-shadow: 0 8px 32px rgba(74, 222, 128, 0.15);
+        }
+
+        .skill-category h3 {
+            color: #4ade80;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tags span {
+            background: rgba(74, 222, 128, 0.1);
+            color: #4ade80;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            border: 1px solid #4ade8033;
+            transition: all 0.3s;
+        }
+
+        .skill-tags span:hover {
+            background: rgba(74, 222, 128, 0.2);
+            transform: scale(1.05);
+        }
+
+        .achievements-grid {
+            display: grid;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .achievement-card {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #fbbf24;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 32px rgba(251, 191, 36, 0.2);
+        }
+
+        .achievement-card h3 {
+            color: #fbbf24;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .achievement-card p {
+            color: #c0c0c0;
+            line-height: 1.7;
+        }
+
+        .coding-profiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .profile-card {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #00ffff33;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ffff;
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+        }
+
+        .profile-card h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #00ffff22;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00ffff;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #b0b0b0;
+            margin-top: 5px;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #00ffff33;
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #00ffff;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid #00ffff33;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-link {
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-link:hover {
+            color: #a855f7;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: #0a0a0a;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #00ffff33;
+        }
+
+        footer p {
+            color: #808080;
+            font-size: 14px;
+        }
+
+        .footer-title {
+            color: #00ffff;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 42px; }
+            .hero h2 { font-size: 24px; }
+            .nav-links { display: none; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .section { padding: 60px 0; }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav class="container">
+            <div class="logo">VS</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <nav>
-    <h1>Sandhiya V S</h1>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>V S Sandhiya</h1>
+            <h2>AI & Machine Learning Engineer</h2>
+            <p class="tagline">Building intelligent, real-world AI solutions with measurable impact — specializing in healthcare AI, predictive analytics, and scalable ML systems</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#" class="btn btn-secondary">Download Resume</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
 
-  <header>
-    <img src="C:\Users\lenovo\OneDrive\Documents\Desktop\HTML\4.1+Webpages (1)\Sandhiya.jpg" alt="Sandhiya V S">
-    <h1>Sandhiya V S</h1>
-    <h2>AI/ML Enthusiast | CSE Student</h2>
-    <p>Engineering student passionate about applying Artificial Intelligence & Machine Learning to real-world problems.</p>
-    <a href="C:\Users\lenovo\Downloads\VSSandhiya CV.pdf" class="btn" download>Download Resume</a>
-  </header>
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>I am a passionate AI and Machine Learning Engineer with expertise in developing intelligent systems that solve real-world problems. My experience spans across machine learning, deep learning, and full-stack development, with a particular focus on healthcare-focused AI systems and predictive analytics.</p>
+                <p>With hands-on experience in implementing CNN-LSTM architectures for disease prediction, building end-to-end ML pipelines, and deploying production-ready models, I bring a unique combination of technical depth and practical implementation skills. I am committed to creating scalable, ethical AI solutions that deliver measurable impact.</p>
+                <p>My approach emphasizes clean code architecture, robust model evaluation, comprehensive data preprocessing, and user-centric deployment strategies. I thrive in collaborative environments where innovation meets real-world application, and I am constantly exploring emerging AI technologies to stay at the forefront of this rapidly evolving field.</p>
+            </div>
+        </div>
+    </section>
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p>I am a curious and passionate CSE student with a strong interest in artificial intelligence and machine learning. My goal is to build systems that improve human life, especially in areas like healthcare, accessibility, and education. I enjoy building real-world projects and continuously exploring new tools and technologies.</p>
-  </section>
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3>Kalaignarkarunanidhi Institute of Technology</h3>
+                <p class="degree">B.E. Computer Science Engineering (Artificial Intelligence & Machine Learning)</p>
+                <p class="cgpa">CGPA: 8.25/10.0 | Pre-Final Year | 2023 – 2027</p>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Tamil Nadu, India</p>
+                <strong style="color: #00ffff;">Relevant Coursework:</strong>
+                <div class="coursework">
+                    <span>Data Structures & Algorithms</span>
+                    <span>Artificial Intelligence</span>
+                    <span>Machine Learning</span>
+                    <span>Deep Learning</span>
+                    <span>Python Programming</span>
+                    <span>Database Management Systems</span>
+                    <span>Probability & Statistics</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="skills">
-    <h2 class="section-title">Skills</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Programming Languages</h3>
-        <span class="tag">Python</span>
-        <span class="tag">C</span>
-        <span class="tag">SQL</span>
-      </div>
-      <div class="card">
-        <h3>Machine Learning</h3>
-        <span class="tag">NumPy</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">Seaborn</span>
-      </div>
-      <div class="card">
-        <h3>Web Development</h3>
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-      </div>
-    </div>
-  </section>
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-card">
+                <h3>LearnLogicify, Coimbatore</h3>
+                <p class="role">Full Stack Development Intern</p>
+                <p class="duration">28 Days | Offline Internship</p>
+                <ul>
+                    <li>Completed comprehensive full-stack web development training covering HTML, CSS, JavaScript, and React.js with emphasis on modern development practices</li>
+                    <li>Developed interactive, responsive web pages and reusable components implementing dynamic functionality and state management</li>
+                    <li>Built production-ready projects integrating front-end React components with backend logic and RESTful APIs, demonstrating end-to-end development capabilities</li>
+                </ul>
+            </div>
 
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Sleep Time Prediction</h3>
-        <p>Uses ML to recommend optimal sleep duration based on lifestyle patterns.</p>
-        <a href="https://github.com/VSSandhiya/Sleep_Time_prediction" class="btn" target="_blank">View ></a>
-      </div>
-      <div class="card">
-        <h3>Hand Gesture Recognition</h3>
-        <p>Detects and classifies real-time hand gestures using OpenCV.</p>
-        <a href="https://github.com/VSSandhiya/hand-gesture" class="btn" target="_blank">View ></a>
-      </div>
-      <div class="card">
-        <h3>Password Generator</h3>
-        <p>Python script to create secure, random passwords with various options.</p>
-        <a href="https://github.com/VSSandhiya/PasswordGenerator" class="btn" target="_blank">View ></a>
-      </div>
-    </div>
-  </section>
+            <div class="experience-card">
+                <h3>Appin Technology, Coimbatore</h3>
+                <p class="role">Machine Learning Intern</p>
+                <p class="duration">15 Days | Offline Internship</p>
+                <ul>
+                    <li>Completed intensive hands-on internship in Machine Learning, focusing on practical implementation of ML models and advanced data preprocessing techniques</li>
+                    <li>Explored and analyzed real-world datasets, building predictive models using Python libraries including Scikit-learn, Pandas, NumPy, and Matplotlib</li>
+                    <li>Gained practical experience in data cleaning, feature engineering, model selection, hyperparameter tuning, and comprehensive model evaluation metrics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:vssandhiya2711@gmail.com">vssandhiya2711@gmail.com</a></p>
-      <p>Phone: +91 63817 33691</p>
-      <p>Location: Salem, Tamil Nadu, India</p>
-    </div>
-    <div class="social">
-      <a href="https://github.com/VSSandhiya" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/v-s-sandhiya-9852222a7" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://leetcode.com/u/VSSandhiya/" target="_blank"><i class="fas fa-code"></i></a>
-      <a href="https://www.codechef.com/users/vssandhiya" target="_blank"><i class="fas fa-utensils"></i></a>
-    </div>
-  </section>
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Neonatal Diseases Prediction System</h3>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>Deep Learning</span>
+                        <span>CNN-LSTM</span>
+                        <span>Keras</span>
+                        <span>TensorFlow</span>
+                   Neonatal Disease Prediction System: Developed a deep learning–based healthcare prediction system using a hybrid CNN-LSTM architecture to identify potential neonatal diseases from clinical data. The model was trained on the BIDMC dataset with extensive preprocessing, feature engineering, and performance evaluation using accuracy, precision, recall, and F1-score metrics. This project demonstrates the application of advanced AI techniques in early disease detection to support data-driven clinical decision-making.
+<p><strong>Tech Stack: Python, Machine Learning, Scikit-learn, Pandas, NumPy, Flask, HTML, CSS.</strong></p>
+                    <a href="https://github.com/VSSandhiya/Predicting_Neonatal_Diseases" class="btn btn-secondary" style="margin-top: 15px; display: inline-block;">View on GitHub</a>
+                </div>
 
-  <footer>
-    <p>&copy; 2025 Sandhiya V S. All rights reserved.</p>
-    <p>Made with ❤️ in Tamil Nadu | AI/ML Engineer in progress 🚀</p>
-  </footer>
+                <div class="project-card">
+                    <h3>Sleep Time Prediction System</h3>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>Scikit-learn</span>
+                        <span>Pandas</span>
+                        <span>Flask</span>
+                        <span>HTML/CSS</span>
+                    </div>
+                    <p><strong>Sleep Time Prediction System: Built a machine learning model to predict optimal sleep duration using lifestyle and physiological factors. Performed data preprocessing, trained and evaluated regression models, and deployed the solution through a Flask-based web application for real-time predictions.
+</strong>
+                    <p><strong>Tech Stack: Python, Machine Learning, Scikit-learn, Pandas, NumPy, Flask, Pickle, HTML, CSS.</strong></p>
+                    <a href="https://github.com/VSSandhiya/Sleep_Time_prediction" class="btn btn-secondary" style="margin-top: 15px; display: inline-block;">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>C</span>
+                        <span>JavaScript</span>
+                        <span>SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>ML & DL Frameworks</h3>
+                    <div class="skill-tags">
+                        <span>TensorFlow</span>
+                        <span>Keras</span>
+                        <span>Scikit-learn</span>
+                        <span>PyTorch</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Science Tools</h3>
+                    <div class="skill-tags">
+                        <span>NumPy</span>
+                        <span>Pandas</span>
+                        <span>Matplotlib</span>
+                        <span>Seaborn</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-tags">
+                        <span>React.js</span>
+                        <span>HTML/CSS</span>
+                        <span>Flask</span>
+                        <span>REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Development Tools</h3>
+                    <div class="skill-tags">
+                        <span>Git/GitHub</span>
+                        <span>Cursor</span>
+                        <span>Bolt</span>
+                        <span>Jupyter</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Deployment & Cloud</h3>
+                    <div class="skill-tags">
+                        <span>Vercel</span>
+                        <span>Docker</span>
+                        <span>AWS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Core CS Concepts</h3>
+                    <div class="skill-tags">
+                        <span>Data Structures</span>
+                        <span>Algorithms</span>
+                        <span>DBMS</span>
+                        <span>Statistics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">Achievements & Recognition</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3>🥉 3rd Prize - NCSRC Hackathon (IIT Madras)</h3>
+                    <p>Secured third place in the National Hackathon associated with AICTE at IIT Madras for developing an innovative Mental Health Prediction System using Social Media data. Applied natural language processing and sentiment analysis techniques to detect mental health patterns from social media interactions.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>🥈 2nd Prize - TNWISE Women Hackathon</h3>
+                    <p>Won second prize at Tamil Nadu Women Hackathon for the Neonatal Disease Prediction System. Demonstrated the application of CNN-LSTM deep learning architecture in healthcare, showcasing innovation in using AI for early disease detection in newborns.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 80px;">Coding Profiles & Competitive Programming</h2>
+            <div class="coding-profiles">
+                <div class="profile-card">
+                    <h3>LeetCode</h3>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-value">1658</span>
+                            <span class="stat-label">Max Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">167</span>
+                            <span class="stat-label">Problems Solved</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label">Badges Earned</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">50</span>
+                            <span class="stat-label">Day Streak</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h3>CodeChef</h3>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-value">1521</span>
+                            <span class="stat-label">Max Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">2⭐</span>
+                            <span class="stat-label">Star Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">863</span>
+                            <span class="stat-label">Problems Solved</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">951</span>
+                            <span class="stat-label">Best Rank</span>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-top: 15px; font-size: 14px;">Global Rank: 25,147 | Highest Rank: 167 in Div 3</p>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Codeforces</h3>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-value">405</span>
+                            <span class="stat-label">Max Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">Newbie</span>
+                            <span class="stat-label">Position</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">9802</span>
+                            <span class="stat-label">Best Rank</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">Active</span>
+                            <span class="stat-label">Status</span>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-top: 15px; font-size: 14px;">Highest Rank: 9802 in Round 1067 (Div 2)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea placeholder="Tell me about your project or opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-links">
+                    <a href="https://mail.google.com/mail/u/2/#inbox?compose=new" class="contact-link">
+                        <span>📧</span> kit27.am43@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/v-s-sandhiya-9852222a7" class="contact-link">
+                        <span>💼</span> LinkedIn
+                    </a>
+                    <a href="https://github.com/VSSandhiya" class="contact-link">
+                        <span>💻</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="footer-title">V S Sandhiya</p>
+            <p>AI & Machine Learning Engineer</p>
+            <p style="margin-top: 20px; font-size: 12px;">© 2024 V S Sandhiya. Building intelligent solutions for a better tomorrow.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    
