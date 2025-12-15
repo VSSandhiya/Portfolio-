@@ -105,6 +105,11 @@
             animation: pulse 4s ease-in-out infinite;
         }
 
+        /* Ensure hero overlays (image/content) sit above the decorative background */
+        .hero::before { z-index: 0; }
+        .hero-inner { position: relative; z-index: 2; }
+        .hero-image { position: relative; z-index: 3; }
+
         @keyframes pulse {
             0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
             50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
@@ -113,6 +118,48 @@
         .hero-content {
             position: relative;
             z-index: 1;
+        }
+
+        /* Layout for hero: image + content */
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            justify-content: center;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .hero-image {
+            flex: 0 0 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: linear-gradient(135deg, rgba(0,255,255,0.04), rgba(168,85,247,0.04));
+            border-radius: 18px;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+            margin-left: -40px; /* pull slightly outside for emphasis */
+        }
+
+        #profile-photo {
+            width: 320px;
+            height: 320px;
+            border-radius: 14px; /* square with slightly rounded corners */
+            object-fit: cover;
+            border: 8px solid rgba(0,255,255,0.18);
+            box-shadow: 0 16px 50px rgba(0,255,255,0.12), 0 6px 18px rgba(0,0,0,0.6);
+            display: block;
+            background: #0a0a0a;
+        }
+
+        /* On small screens stack the image above the text and center everything */
+        @media (max-width: 768px) {
+            .hero-inner { flex-direction: column; padding: 60px 20px; }
+            .hero-content { text-align: center; }
+            .hero-image { margin-bottom: 20px; margin-left: 0; }
+            #profile-photo { width: 240px; height: 240px; border-radius: 12px; }
         }
 
         .hero h1 {
@@ -628,7 +675,7 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">VS</div>
+            
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
@@ -642,17 +689,24 @@
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>V S Sandhiya</h1>
-            <h2>AI & Machine Learning Engineer</h2>
-            <p class="tagline">Building intelligent, real-world AI solutions with measurable impact — specializing in healthcare AI, predictive analytics, and scalable ML systems</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#" class="btn btn-secondary">Download Resume</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        <div class="hero-inner">
+            <div class="hero-image">
+                <div class="image-border"></div>
+                <img src="profileimage.jpg" onerror="this.onerror=null;this.src='assets/profileimage.jpg'" alt="V S Sandhiya" id="profile-photo" title="V S Sandhiya">
+            </div>
+            <div class="hero-content">
+                <h1>V S Sandhiya</h1>
+                <h2>AI & Machine Learning Engineer</h2>
+                <p class="tagline">Building intelligent, real-world AI solutions with measurable impact — specializing in healthcare AI, predictive analytics, and scalable ML systems</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="assets/V-S-Sandhiya-Resume.pdf" class="btn btn-secondary" download target="_blank" rel="noopener">Download Resume</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
             </div>
         </div>
     </section>
+
 
     <section id="about" class="section">
         <div class="container">
@@ -727,9 +781,9 @@
                         <span>Deep Learning</span>
                         <span>CNN-LSTM</span>
                         <span>Keras</span>
-                        <span>TensorFlow</span>
-                   Neonatal Disease Prediction System: Developed a deep learning–based healthcare prediction system using a hybrid CNN-LSTM architecture to identify potential neonatal diseases from clinical data. The model was trained on the BIDMC dataset with extensive preprocessing, feature engineering, and performance evaluation using accuracy, precision, recall, and F1-score metrics. This project demonstrates the application of advanced AI techniques in early disease detection to support data-driven clinical decision-making.
-<p><strong>Tech Stack: Python, Machine Learning, Scikit-learn, Pandas, NumPy, Flask, HTML, CSS.</strong></p>
+                        <span>TensorFlow</span></div>
+                   <p><strong>Neonatal Disease Prediction System: Developed a deep learning–based healthcare prediction system using a hybrid CNN-LSTM architecture to identify potential neonatal diseases from clinical data. The model was trained on the BIDMC dataset with extensive preprocessing, feature engineering, and performance evaluation using accuracy, precision, recall, and F1-score metrics. This project demonstrates the application of advanced AI techniques in early disease detection to support data-driven clinical decision-making.</p></strong>
+<p><strong>Tech Stack: Python, Machine Learning, Scikit-learn, Pandas, NumPy, Flask, HTML, CSS.        </strong></p><br>
                     <a href="https://github.com/VSSandhiya/Predicting_Neonatal_Diseases" class="btn btn-secondary" style="margin-top: 15px; display: inline-block;">View on GitHub</a>
                 </div>
 
